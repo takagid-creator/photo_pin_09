@@ -238,6 +238,11 @@ body.hastabs .plist{top:calc(var(--tabh) + env(safe-area-inset-top))}
 #p360View .p3vnote{font-size:12px;color:#8d9aa9;padding:6px 12px 12px;text-align:center}
 
 .tbtn.pinvis{gap:3px}
+#vRef,#sNote,#mImg,#sImgAdd{display:none !important}
+.visgrp{display:flex;flex-direction:column;align-items:center;justify-content:center;height:42px;gap:2px}
+.visgrp .vgb{display:flex;gap:3px}
+#sheet .bar .visgrp .tbtn.pinvis{min-width:32px;height:29px;padding:0 3px;border-radius:8px}
+.visgrp > small{font-size:9.5px;line-height:1;color:var(--text-dim)}
 .tbtn.pinvis .pvi{width:var(--pvs,21px);height:var(--pvs,21px);border-radius:50%;background:#ff9f1a;color:#2a1a00;border:1.5px solid #fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:calc(var(--pvs,21px) * .36);box-shadow:0 1px 3px rgba(0,0,0,.5);transition:.15s}
 .tbtn.pinvis .pvi svg{width:62%;height:62%;fill:none;stroke:currentColor;stroke-width:2.2}
 .tbtn.pinvis.on{background:#232d39;box-shadow:inset 0 0 0 2px #ff9f1a}
@@ -268,7 +273,51 @@ body.hastabs .plist{top:calc(var(--tabh) + env(safe-area-inset-top))}
 #p360Pane .p3wait{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 12px 0;padding:10px 12px;border-radius:10px;background:#2a2112;border:1.5px dashed #ff9f1a;color:#ffd38a;font-size:13px}
 #p360Pane .p3wait b{color:#ffb020}
 .p3btn.pri{background:#ff9f1a;color:#2a1a00}
-#p360Pane .p3last{grid-column:1/-1;justify-self:center;padding:12px 18px;font-size:14px}
+#p360Pane .p3home{flex:1;overflow:auto;display:flex;flex-direction:column;align-items:center;gap:14px;padding:18px 14px 30px}
+#p360Pane.home .p3grid,#p360Pane.home .p3hint,#p360Pane.home .p3cur{display:none !important}
+#p360Pane:not(.home) .p3home{display:none}
+#p360Pane.home #p3HomeBtn{display:none}
+#p360Pane.over{outline:2px dashed #4aa3ff;outline-offset:-8px}
+#p360Pane .p3open{height:44px;padding:0 26px;border-radius:8px;background:#233240;border:1px solid #2f4453;color:#eef2f6;font-size:15px;font-weight:700}
+#p360Pane .p3open:hover{background:#2b4053}
+#p360Pane .p3drop{color:#8d9aa9;font-size:12.5px;text-align:center}
+#p360Pane .p3note{width:100%;max-width:640px;display:flex;flex-direction:column;gap:4px;margin-top:4px}
+#p360Pane .p3note p{margin:0;color:#8d9aa9;font-size:12px;line-height:1.7}
+#p360Pane .p3note p::before{content:"・"}
+#p360Pane .p3cur{display:flex;align-items:center;gap:10px;margin:8px 12px 0;padding:6px 10px;border-radius:8px;background:#18212b;color:#eef2f6;font-size:13px}
+#p360Pane .p3cur span:first-child{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#p360Pane .p3cur small{color:#8d9aa9;font-size:11.5px;margin-left:8px}
+#p360Pane .p3cur .n{color:#8d9aa9;font-size:12px}
+#p3Recent{width:100%;max-width:760px;display:grid;grid-template-columns:1fr;gap:18px;text-align:left}
+#p3Recent:empty{display:none}
+#p3Recent .rcol{min-width:0;display:flex;flex-direction:column}
+#p3Recent .rh{color:#8d9aa9;font-size:12px;margin-bottom:4px}
+#p3Recent .rh b{color:#eef2f6;font-weight:700;font-size:13px;margin-right:6px}
+#p3Recent .rlist{display:flex;flex-direction:column}
+#p3Recent .node{margin-bottom:4px}
+#p3Recent .rr{display:flex;gap:4px}
+#p3Recent .ri{flex:1;min-width:0;display:flex;justify-content:flex-start;gap:10px;align-items:center;min-height:38px;padding:5px 12px;border-radius:6px;background:#1b2226;border:1px solid #2f4453;text-align:left;color:#eef2f6;font-size:13.5px}
+#p3Recent .ri:hover{background:#2b4053}
+#p3Recent .rl{flex:1;display:flex;flex-direction:column;min-width:0;line-height:1.35}
+#p3Recent .rn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#p3Recent .rs{color:#8d9aa9;font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#p3Recent .rm{color:#8d9aa9;font-size:12px;white-space:nowrap}
+#p3Recent .chev{width:16px;flex:0 0 auto;color:#8d9aa9;text-align:center;transition:transform .15s}
+#p3Recent .node.open > .rr .chev{transform:rotate(90deg);color:#eef2f6}
+#p3Recent .rx{width:34px;border-radius:6px;color:#8d9aa9;background:transparent;font-size:14px}
+#p3Recent .rx:hover{background:#232a2e;color:#eef2f6}
+#p3Recent .rx.rxpin{filter:grayscale(1);opacity:.55}
+#p3Recent .rx.rxpin.on{filter:none;opacity:1}
+#p3Recent .re{flex:1;min-width:0;height:38px;padding:0 10px;border-radius:6px;border:1px solid #3d9ad6;background:#0e1113;color:#eef2f6;font:inherit;outline:none;-webkit-user-select:text;user-select:text}
+#p3Recent .kids{margin:4px 0 2px 22px;padding-left:10px;border-left:1px dashed #3a4a55;display:flex;flex-direction:column;gap:3px}
+#p3Recent .kid > .rr .ri{min-height:34px;background:#161d21;border-color:#26343d}
+#p3Recent .kid > .rr .ri:hover{background:#243644}
+#p3Recent .kid.here > .rr .ri{border-color:#e8b23a}
+#p3Recent .kid.cur > .rr .ri{outline:2px solid #3d9ad6;outline-offset:1px}
+#p3Recent .kid.empty > .rr .ri{opacity:.45}
+#p3Recent .kid .kids{margin-left:18px}
+#p3Recent .kmsg{color:#8d9aa9;font-size:12px;padding:4px 6px}
+#p3Recent .pempty{border:1px dashed #33424b;border-radius:6px;padding:14px;text-align:center}
 .tbtn#v360Shoot svg{stroke-width:1.8}
 .lklist{max-height:52vh;overflow:auto;display:flex;flex-direction:column;gap:6px;margin-top:6px}
 .lk{display:flex;align-items:center;gap:8px;background:#1b232d;border-radius:10px;padding:6px 8px}
@@ -772,7 +821,7 @@ body.sv #pendView.on{display:flex}
       <h1>SANEI_現場NOTE</h1>
       <p>PDFの上に、どこから・どの向きに撮ったかを残します。図面にも写真にも朱書きでき、丸ごとエクスポートしてパソコンでも同じ画面で開けます。</p>
       <div class="sub" id="swMsg" style="margin-top:12px">オフライン対応：確認中…</div>
-      <div class="sub" id="verMsg">アプリの版：186（2026/11/13）</div>
+      <div class="sub" id="verMsg">アプリの版：190（2026/11/13）</div>
       <div class="safe" id="safeBox"></div>
     </div>
     <div class="actions">
@@ -804,8 +853,7 @@ body.sv #pendView.on{display:flex}
       <button class="tbtn" id="vSplit" title="画面を左右に分けて、左に図面、右に写真・写真一覧・拡大コピー・白紙・メモ・質問事項・チェックシートを表示します"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2"/><path d="M12 4.5v15"/></svg><small>2分割</small></button>
       <button class="tbtn" id="vRef" title="この図面に資料PDFを保存して開きます"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h7M9 16h7"/></svg><small>資料</small></button>
     <div class="sp"></div>
-    <button class="tbtn on pinvis" id="vQuick" title="写真のピンを表示／非表示"><span class="pvi cam"><svg viewBox="0 0 24 24"><path d="M3 8.5A1.5 1.5 0 0 1 4.5 7H8l1.2-2h5.6L16 7h3.5A1.5 1.5 0 0 1 21 8.5v9A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5z"/><circle cx="12" cy="13" r="3.2"/></svg></span><small>写真</small></button><button class="tbtn on pinvis" id="vQ360" title="360°写真のマークを表示／非表示"><span class="pvi">360</span><small>360°</small></button>
-    <button class="tbtn" id="v360Shoot" title="360°撮影モード：撮った場所をタップして、写真待ちのマークを置きます"><svg viewBox="0 0 24 24"><rect x="8" y="3" width="8" height="18" rx="3"/><circle cx="12" cy="8.5" r="2.4"/><path d="M3.5 13.5c0-1.6 1.8-2.6 4.5-3"/><path d="M20.5 13.5c0-1.6-1.8-2.6-4.5-3"/><path d="M3.5 13.5c0 2 3.8 3.5 8.5 3.5s8.5-1.5 8.5-3.5"/></svg><small>360°撮影</small></button>
+    <div class="visgrp"><div class="vgb"><button class="tbtn on pinvis" id="vQuick" title="写真のピンを表示／非表示"><span class="pvi cam"><svg viewBox="0 0 24 24"><path d="M3 8.5A1.5 1.5 0 0 1 4.5 7H8l1.2-2h5.6L16 7h3.5A1.5 1.5 0 0 1 21 8.5v9A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5z"/><circle cx="12" cy="13" r="3.2"/></svg></span></button><button class="tbtn on pinvis" id="vQ360" title="360°写真のマークを表示／非表示"><span class="pvi">360</span></button></div><small>表示</small></div>
     <button class="tbtn on" id="vLock"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><small>ピン固定</small></button>
     <button class="tbtn" id="sPrev"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
     <div class="sub" id="sPage" style="min-width:52px;text-align:center">1 / 1</div>
@@ -933,6 +981,7 @@ body.sv #pendView.on{display:flex}
     </div>
     <div class="sp"></div>
     <button class="tbtn" id="sImgAdd" title="画像をこのPDFに貼り付けます（PCはCtrl+Vでも貼れます）"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="1.5"/><path d="M12 8.5v7M8.5 12h7"/></svg><small>画像貼付</small></button>
+    <button class="tbtn" id="v360Shoot" title="360°事前配置：撮った場所をタップして、写真待ちのマークを置きます"><svg viewBox="0 0 24 24"><rect x="8" y="3" width="8" height="18" rx="3"/><circle cx="12" cy="8.5" r="2.4"/><path d="M3.5 13.5c0-1.6 1.8-2.6 4.5-3"/><path d="M20.5 13.5c0-1.6-1.8-2.6-4.5-3"/><path d="M3.5 13.5c0 2 3.8 3.5 8.5 3.5s8.5-1.5 8.5-3.5"/></svg><small>360°事前配置</small></button>
     <button class="tbtn" id="sPick"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg><small>写真から</small></button>
   </div>
 </section>
@@ -1594,19 +1643,51 @@ function attachSurface(wrap, stage, view, opts) {
   window.addEventListener('pointerup', up, true);
   window.addEventListener('pointercancel', up, true);
 
+  let glide = null;
+  function wheelGlide(dx, dy) {
+    if (!glide) glide = { x: 0, y: 0, raf: 0 };
+    glide.x += dx; glide.y += dy;
+    if (glide.raf) return;
+    const g = glide;
+    const step = () => {
+      g.raf = 0;
+      if (glide !== g) return;
+      /* 残りの4割ずつ進む（最低2px）。約0.1秒で行き先に着く */
+      const mv = v => Math.abs(v) < 2 ? v : Math.sign(v) * Math.max(2, Math.abs(v) * .4);
+      const mx = mv(g.x), my = mv(g.y);
+      g.x -= mx; g.y -= my;
+      const bx = view.tx, by = view.ty;
+      view.tx -= mx; view.ty -= my; apply();
+      if (view.tx === bx) g.x = 0;                        /* 端に当たったら、その向きはやめる */
+      if (view.ty === by) g.y = 0;
+      if (g.x || g.y) g.raf = requestAnimationFrame(step);
+      else { glide = null; clearTimeout(wrap._wt); wrap._wt = setTimeout(() => opts.settled && opts.settled(), 200); }
+    };
+    g.raf = requestAnimationFrame(step);
+  }
+  wrap.addEventListener('pointerdown', () => { glide = null; }, true);
   wrap.addEventListener('wheel', e => {
     if (e.target.closest && e.target.closest('.thumbs, .memo')) return;
     e.preventDefault();
-    if (e.ctrlKey && e.shiftKey && opts.wheelPan) {      /* Ctrl+Shift+ホイール：横に動かす（下に回す＝右へ） */
+    if (e.ctrlKey && e.shiftKey && opts.wheelPan) {
+      glide = null;      /* Ctrl+Shift+ホイール：横に動かす（下に回す＝右へ） */
       view.tx -= (e.deltaY || e.deltaX); apply();
       clearTimeout(wrap._wt); wrap._wt = setTimeout(() => opts.settled && opts.settled(), 200);
       return;
     }
     if (opts.wheelPan && !e.ctrlKey && !e.metaKey) {
-      view.tx -= e.deltaX; view.ty -= e.deltaY; apply();
+      let dx = e.deltaX, dy = e.deltaY;
+      if (e.deltaMode === 1) { dx *= 33; dy *= 33; } else if (e.deltaMode === 2) { dx *= wr().width; dy *= wr().height; }
+      /* マウスのホイール（1目盛りが大きい）は、行き先まで数コマかけてなめらかに動かす。タッチパッド（細かい動き）はそのまま */
+      if (e.deltaMode !== 0 || Math.abs(dy) >= 50 || Math.abs(dx) >= 50) wheelGlide(dx, dy);
+      else {
+        glide = null;
+        view.tx -= dx; view.ty -= dy; apply();
+      }
       clearTimeout(wrap._wt); wrap._wt = setTimeout(() => opts.settled && opts.settled(), 200);
       return;
     }
+    glide = null;
     const wrb = wr();
     const k = clamp(view.scale * (e.deltaY < 0 ? 1.12 : 1 / 1.12), opts.minScale || .05, opts.maxScale || 24);
     const f = k / view.scale;
@@ -3069,6 +3150,8 @@ let renderAgain = false;
 const PDF_DPR = Math.min(DPR, 2);
 /* 画面のまわりに持たせる余裕。iPadは画素の上限が低いので余裕を削って解像度を優先 */
 const REGION_MARGIN = (navigator.maxTouchPoints || 0) > 0 ? .08 : .18;
+/* 上下はよくスクロールするので、余裕を多めに（スクロールしてもしばらくは細かい絵のまま見える） */
+const REGION_MARGIN_V = (navigator.maxTouchPoints || 0) > 0 ? .18 : .45;
 const REGION_MAXPX = (navigator.maxTouchPoints || 0) > 0 ? 5e6 : 9e6;   /* 1枚あたりの画素数の上限 */
 
 /* 今このページで描いておきたい範囲（ページ座標） */
@@ -3078,9 +3161,9 @@ function wantRegion(slot) {
   const vy = (-sheetView.ty) / sheetView.scale - L.y;
   const vw = r.width / sheetView.scale, vh = r.height / sheetView.scale;
   const rx = clamp(vx - vw * REGION_MARGIN, 0, Math.max(0, L.w - 1));
-  const ry = clamp(vy - vh * REGION_MARGIN, 0, Math.max(0, L.h - 1));
+  const ry = clamp(vy - vh * REGION_MARGIN_V, 0, Math.max(0, L.h - 1));
   const rw = clamp(vw * (1 + 2 * REGION_MARGIN), 1, L.w - rx);
-  const rh = clamp(vh * (1 + 2 * REGION_MARGIN), 1, L.h - ry);
+  const rh = clamp(vy + vh * (1 + REGION_MARGIN_V) - ry, 1, L.h - ry);
   return { rx, ry, rw, rh, vx, vy, vw, vh };
 }
 function targetRs(slot) {
@@ -3164,7 +3247,7 @@ function renderLow(slot) {
     if (s.lowC.width !== W || s.lowC.height !== H) { s.lowC.width = s.lowI.width = W; s.lowC.height = s.lowI.height = H; }
     const c = s.lowC.getContext('2d'); if (!c) return;
     c.setTransform(1, 0, 0, 1, 0, 0); c.fillStyle = '#fff'; c.fillRect(0, 0, W, H);
-    await page.render({ canvasContext: c, viewport: page.getViewport({ scale: rs }) }).promise;
+    if (!await runRender(page, { canvasContext: c, viewport: page.getViewport({ scale: rs }) })) { s.lowC.width = s.lowC.height = s.lowI.width = s.lowI.height = 0; scheduleRerender(); return; }
     s.lowRs = rs;
     redrawLowInk(slot);
     positionCanvases();
@@ -3186,6 +3269,22 @@ function redrawLowInk(slot) {
     }
   }
 }
+/* 描いている途中のPDF描画。図面を動かしたら途中でやめる（動かしている間の引っかかり防止） */
+const liveRenders = new Set();
+function cancelRenders() {
+  if (!liveRenders.size) return;
+  liveRenders.forEach(t => { try { t.cancel(); } catch (e) { } });
+  liveRenders.clear();
+}
+function runRender(page, opt) {
+  const t = page.render(opt);
+  liveRenders.add(t);
+  return t.promise.then(() => { liveRenders.delete(t); return true; }, e => {
+    liveRenders.delete(t);
+    if (e && e.name === 'RenderingCancelledException') return false;
+    throw e;
+  });
+}
 let pdfQueue = Promise.resolve();
 function pdfTask(fn) {
   const p = pdfQueue.then(fn, fn);
@@ -3203,6 +3302,7 @@ function renderOne(slot) {
 async function renderOneInner(slot) {
   const L = layout[slot], s = pg[slot];
   if (!L || !s || !pdfDoc) return;
+  if (performance.now() - viewMovedAt < 140) { scheduleRerender(); return; }   /* 動かしている最中は描き始めない */
   const { g, rs } = targetRs(slot);
   const W = Math.max(CANVAS_Q, Math.ceil(g.rw * rs / CANVAS_Q) * CANVAS_Q);
   const H = Math.max(CANVAS_Q, Math.ceil(g.rh * rs / CANVAS_Q) * CANVAS_Q);
@@ -3220,10 +3320,10 @@ async function renderOneInner(slot) {
   octx.clearRect(0, 0, W, H);
   octx.fillStyle = '#fff';
   octx.fillRect(0, 0, Math.min(W, (L.w - g.rx) * rs), Math.min(H, (L.h - g.ry) * rs));
-  await page.render({
+  if (!await runRender(page, {
     canvasContext: octx, viewport: vp,
     transform: [1, 0, 0, 1, -g.rx * rs, -g.ry * rs]
-  }).promise;
+  })) { scheduleRerender(); return; }                 /* 途中でやめた：今の絵のまま。止まったら描き直す */
 
   /* 大きさが同じなら作り直さず、中身だけ入れ替える */
   for (const c of [s.pdfC, s.inkC]) if (c.width !== W || c.height !== H) { c.width = W; c.height = H; }
@@ -4960,7 +5060,7 @@ const sSurf = attachSurface(sWrap, sStage, sheetView, {
   get maxScale() { return Math.max(30, (baseScale || .3) * 100); },   /* 全体表示の100倍まで */
   wheelPan: true,
   clamp: clampSheet,
-  onView: () => { if (fixT) flushLive(); viewDirty = true; viewMovedAt = performance.now();
+  onView: () => { if (fixT) flushLive(); viewDirty = true; viewMovedAt = performance.now(); cancelRenders();
     positionCanvases(); positionPins(); if (typeof positionP360 === 'function') positionP360(); positionZooms(); positionNotes(); positionMarks(); updatePageLabel(); scheduleRerender(); if (typeof updateHBar === 'function') updateHBar(); },
   settled: () => { if (viewDirty) { viewDirty = false; renderVisible(); } },
   tapMode: () => pendingQueue.length > 0 || noteMode || !!aimM || (typeof shoot360 !== 'undefined' && shoot360),
@@ -5091,7 +5191,7 @@ function pinScreen(m) {
 const pinEls = new Map();
 function positionPins() {
   if (!proj || !pinEls.size) return;
-  const W = sWrap.clientWidth, H = sWrap.clientHeight;
+  const wb = wbox(), W = wb.width, H = wb.height;
   proj.markers.forEach(m => {
     const el = pinEls.get(m.id); if (!el) return;
     const L = layout[slotOf[m.page]];
@@ -6183,6 +6283,7 @@ async function imgAddFile(file) {
 $('#sImgAdd').onclick = () => { if (proj) $('#fileImg').click(); };
 $('#fileImg').onchange = async e => { const f = e.target.files[0]; e.target.value = ''; if (f) imgAddFile(f); };
 document.addEventListener('paste', e => {
+  return;                                             /* 画像貼付は使わない（187版まで） */
   const cur = document.querySelector('.screen.on');
   if (!proj || !cur || cur.id !== 'sheet' || document.body.classList.contains('simple')) return;
   const t = e.target; if (t && (t.tagName === 'TEXTAREA' || t.tagName === 'INPUT')) return;
@@ -6670,70 +6771,300 @@ function p360Pane() {
   el = document.createElement('div'); el.id = 'p360Pane';
   el.innerHTML = `<div class="p3head">
       <b id="p3Title">360°写真を配置</b><span class="sp"></span>
-      <label class="p3btn" id="p360DirBtn">フォルダを選ぶ<input type="file" id="p360Dir" webkitdirectory directory multiple hidden></label>
+      <button class="p3btn" id="p3HomeBtn" title="フォルダの一覧（履歴・ピン留め）に戻る">📁 フォルダ</button>
       <label class="p3btn">画像を選ぶ<input type="file" id="p360Pick" accept=".jpg,.jpeg,.insp,image/jpeg" multiple hidden></label>
       <button class="p3btn" id="p360Close">閉じる</button></div>
+    <input type="file" id="p360Dir" webkitdirectory directory multiple hidden>
     <div class="p3wait" id="p360Wait"></div>
+    <div class="p3cur" id="p3Cur"></div>
     <div class="p3hint">画像を<b>左の図面へドラッグ</b>して、置きたい場所で離してください（指でもできます）</div>
-    <div class="p3grid" id="p360Grid"></div>`;
+    <div class="p3grid" id="p360Grid"></div>
+    <div class="p3home" id="p3Home">
+      <button class="p3open" id="p3Open">📂 フォルダを開く</button>
+      <div class="p3drop">写真の入ったフォルダや画像を、ここへドラッグ＆ドロップしても開けます</div>
+      <div id="p3Recent"></div>
+      <div class="p3note">
+        <p>［フォルダを開く］の画面では、フォルダの中の写真は表示されません。写真の入ったフォルダを選んで決定してください。</p>
+        <p>中にフォルダがあるときは、ここに階層で出ます。▸ を押して、写真の入ったフォルダを選んでください。</p>
+        <p>一度開いたフォルダは「履歴」に残ります。📌 を押すと「ピン留め」にも残せます。🏷️ で現場名などのメモを付けられます。</p>
+      </div>
+    </div>`;
   paneO.appendChild(el);
-  const take = files => {
+  const take = (files, info) => {
     const list = [...files].filter(f => p3Ext().test(f.name)).sort((a, b) => a.name.localeCompare(b.name, 'ja', { numeric: true }));
-    if (!list.length) { toast(sToast, p3Word() + 'が見つかりませんでした'); return; }
+    if (!list.length) { toast(sToast, p3Word() + 'が見つかりませんでした'); return false; }
     p360Files = list; p3Sel.clear(); p3Anchor = -1; p360Thumbs.forEach(u => URL.revokeObjectURL(u)); p360Thumbs.clear();
+    p3CurInfo = info || null;
+    p3Show('grid');
     p360Draw();
+    return true;
   };
-  el.querySelector('#p360Dir').onchange = e => { take(e.target.files); e.target.value = ''; };
-  /* パソコン（Chrome・Edge）：フォルダを選ぶだけで中の360°写真を読み込む（「アップロード」の確認なし）。前回のフォルダも覚えておく */
-  el.querySelector('#p360DirBtn').addEventListener('click', ev => {
-    if (ev.target.id === 'p360Dir' || !window.showDirectoryPicker) return;
-    ev.preventDefault();
-    p360PickDir();
-  });
   p360Take = take;
+  el.querySelector('#p360Dir').onchange = e => { take(e.target.files); e.target.value = ''; };
   el.querySelector('#p360Pick').onchange = e => { take(e.target.files); e.target.value = ''; };
   el.querySelector('#p360Close').onclick = () => close360Pane();
+  el.querySelector('#p3HomeBtn').onclick = () => p3GoHome(true);
+  el.querySelector('#p3Open').onclick = p3PickFolder;
   p3WireBand(el.querySelector('#p360Grid'));
+  p3WireDrop(el);
   return el;
 }
-const p3DirKey = () => p3Kind === 'photo' ? '__phdir__' : '__p360dir__';
-async function p360ReadDir(h) {
+/* ---- フォルダの読み込み（360Viewer と同じ方式）----
+   ・［フォルダを開く］で選んだフォルダを記憶。中にフォルダがあれば、1階層ずつ選んで、写真の入ったフォルダを開く
+   ・ホーム：上＝履歴（最近開いた順）、下＝ピン留め。🏷️ メモ、× で履歴から外す
+   ・記憶は「写真」と「360°」で別々 */
+let p3View = 'home', p3CurInfo = null;
+const p3TreeOpen = new Set(), p3LvCache = new Map();
+let p3TreeMark = null;
+function p3Show(v) {
+  p3View = v;
+  const el = document.getElementById('p360Pane'); if (!el) return;
+  el.classList.toggle('home', v === 'home');
+  const c = el.querySelector('#p3Cur');
+  if (c) {
+    const i = p3CurInfo;
+    c.innerHTML = i ? `<span>📁 <b></b><small></small></span><span class="n">${p360Files.length}枚</span>` : '';
+    if (i) { c.querySelector('b').textContent = i.memo || i.name; c.querySelector('small').textContent = [i.memo ? i.name : '', i.where || ''].filter(Boolean).join('　'); }
+    c.style.display = i ? '' : 'none';
+  }
+}
+const p3DirsKey = () => p3Kind === 'photo' ? '__phdirs__' : '__p360dirs__';
+const p3OldKey = () => p3Kind === 'photo' ? '__phdir__' : '__p360dir__';
+let p3DirChain = Promise.resolve();
+async function p3Dirs() {
+  let list = await DB.get('files', p3DirsKey()).catch(() => null);
+  if (!Array.isArray(list)) {
+    list = [];
+    const old = await DB.get('files', p3OldKey()).catch(() => null);          /* 前の版で覚えていたフォルダを引き継ぐ */
+    if (old && old.kind === 'directory') list.push({ h: old, id: 'N:' + Date.now().toString(36), t: Date.now(), n: 0, sub: 0, memo: '', inHist: true, pinned: false });
+  }
+  return list.filter(r => r && r.h);
+}
+async function p3SetDirs(list) {
+  list.filter(r => r.inHist).sort((a, b) => b.t - a.t).slice(20).forEach(r => r.inHist = false);
+  list = list.filter(r => r.inHist || r.pinned);
+  try { await DB.put('files', list, p3DirsKey()); } catch (e) { console.warn('p3dirs', e); }
+}
+function p3MutDirs(fn) { p3DirChain = p3DirChain.then(fn).catch(e => console.warn('p3dirs', e)); return p3DirChain; }
+async function p3Find(list, dir) { for (const r of list) { try { if (await r.h.isSameEntry(dir)) return r; } catch (e) { } } return null; }
+const p3IdOf = r => r.id || ('L:' + r.h.name);
+function p3Remember(dir, n, sub, where) {
+  return p3MutDirs(async () => {
+    const list = await p3Dirs();
+    let r = await p3Find(list, dir);
+    if (!r) { r = { h: dir, id: 'N:' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), n: 0, sub: 0, memo: '', pinned: false }; list.push(r); }
+    r.t = Date.now(); r.inHist = true;
+    if (n !== undefined) r.n = n;
+    if (sub !== undefined) r.sub = sub;
+    if (where !== undefined) r.where = where;
+    await p3SetDirs(list);
+  });
+}
+function p3Edit(dir, fn) { return p3MutDirs(async () => { const list = await p3Dirs(); const r = await p3Find(list, dir); if (r) fn(r); await p3SetDirs(list); }); }
+async function p3Rec(dir) { return p3Find(await p3Dirs(), dir); }
+async function p3Perm(h) {
+  let p = await h.queryPermission({ mode: 'read' });
+  if (p !== 'granted') p = await h.requestPermission({ mode: 'read' });
+  return p === 'granted';
+}
+async function p3ListLevel(dir) {                     /* 1階層分：写真の枚数とサブフォルダ（写真そのものは読まない） */
+  let n = 0; const subs = [];
+  for await (const [name, h] of dir.entries()) {
+    if (h.kind === 'file') { if (p3Ext().test(name)) n++; }
+    else subs.push(h);
+  }
+  subs.sort((a, b) => a.name.localeCompare(b.name, 'ja', { numeric: true }));
+  return { n, subs };
+}
+async function p3Level(key, dir) { const k = p3Kind + '|' + key; if (p3LvCache.has(k)) return p3LvCache.get(k); const lv = await p3ListLevel(dir); p3LvCache.set(k, lv); return lv; }
+async function p3DirAt(root, path) { let d = root; for (const n of path) d = await d.getDirectoryHandle(n); return d; }
+async function p3PickFolder() {
+  if (!window.showDirectoryPicker) { document.getElementById('p360Dir').click(); return; }   /* iPad など：従来の選び方 */
+  let d;
+  try { d = await window.showDirectoryPicker({ id: p3Kind === 'photo' ? 'pph' : 'p360', mode: 'read' }); }
+  catch (e) { return; }
+  await p3OpenFolder(d);
+}
+async function p3OpenFolder(root) {
+  busy(true, 'フォルダを確認しています…');
+  let lv;
+  try { lv = await p3ListLevel(root); }
+  catch (e) { busy(false); toast(sToast, 'フォルダを開けませんでした'); return; }
+  busy(false);
+  await p3Remember(root, lv.n, lv.subs.length);
+  if (!lv.subs.length) { await p3OpenPhotos(root, [], root); return; }
+  /* 中にフォルダがある → フォルダ一覧に戻り、このフォルダを開いた状態にする */
+  const r = await p3Rec(root);
+  if (r) { p3TreeOpen.add('h|' + p3IdOf(r) + ':'); p3LvCache.set(p3Kind + '|' + p3IdOf(r) + ':', lv); }
+  p3TreeMark = null;
+  p3GoHome(false);
+}
+async function p3OpenPhotos(root, path, dir) {
+  busy(true, '写真を読み込んでいます…');
   const out = [];
-  const walk = async (d, depth) => {
-    for await (const e of d.values()) {
-      if (e.kind === 'file' && p3Ext().test(e.name)) out.push(await e.getFile());
-      else if (e.kind === 'directory' && depth < 1) await walk(e, depth + 1);   /* 1段下のフォルダまで */
+  try { for await (const [name, h] of dir.entries()) if (h.kind === 'file' && p3Ext().test(name)) { try { out.push(await h.getFile()); } catch (e) { } } }
+  catch (e) { busy(false); toast(sToast, '読み込めませんでした'); return; }
+  busy(false);
+  if (!out.length) { toast(sToast, 'このフォルダには' + p3Word() + 'がありません'); return; }
+  /* 開いたフォルダを履歴に残す（サブフォルダも1件として。大元は日時だけ新しく） */
+  const rr = await p3Rec(root);
+  let where;
+  if (path.length) {
+    where = ((rr && rr.memo) || root.name) + (path.length > 1 ? ' ／ ' + path.slice(0, -1).join(' ／ ') : '') + ' の中';
+    let sub; try { sub = (await p3ListLevel(dir)).subs.length; } catch (e) { }
+    await p3Remember(root);
+    await p3Remember(dir, out.length, sub, where);
+  } else await p3Remember(root, out.length);
+  const me = await p3Rec(dir);
+  p360Take && p360Take(out, { name: dir.name, memo: me ? me.memo : '', where, root, path });
+}
+/* ［📁 フォルダ］：フォルダ一覧へ。見ていたフォルダまで開いて青枠で示す */
+async function p3GoHome(mark) {
+  p3TreeMark = null;
+  if (mark && p3CurInfo && p3CurInfo.root) {
+    const r = await p3Rec(p3CurInfo.root), path = p3CurInfo.path || [];
+    if (r) {
+      const id = p3IdOf(r), col = r.inHist ? 'h' : 'p';
+      if (path.length) p3TreeOpen.add(col + '|' + id + ':');
+      for (let i = 1; i < path.length; i++) p3TreeOpen.add(col + '|' + id + ':' + path.slice(0, i).join('/'));
+      if (path.length) p3TreeMark = col + '|' + id + ':' + path.join('/');
     }
-  };
-  busy(true, `「${h.name}」を読んでいます…`);
-  try { await walk(h, 0); } finally { busy(false); }
-  return out;
+  }
+  p3Show('home');
+  p3RenderRecent();
 }
-async function p360PickDir() {
-  let h;
-  try {
-    const last = await DB.get('files', p3DirKey()).catch(() => null);
-    h = await window.showDirectoryPicker(Object.assign({ id: p3Kind === 'photo' ? 'pph' : 'p360', mode: 'read' }, last ? { startIn: last } : {}));
-  } catch (e) { return; }                                   /* やめたとき */
-  try { await DB.put('files', h, p3DirKey()); } catch (e) { }
-  const files = await p360ReadDir(h);
-  p360Take && p360Take(files);
+async function p3RenderRecent() {
+  const box = document.getElementById('p3Recent'); if (!box) return;
+  const all = await p3Dirs();
+  const hist = all.filter(r => r.inHist).sort((a, b) => b.t - a.t).slice(0, 10);
+  const pins = all.filter(r => r.pinned).sort((a, b) => (b.pinT || 0) - (a.pinT || 0));
+  box.innerHTML = '';
+  if (!window.showDirectoryPicker || (!hist.length && !pins.length)) return;
+  const col = (t, s) => { const c = document.createElement('div'); c.className = 'rcol'; c.innerHTML = '<div class="rh"><b></b><span></span></div><div class="rlist"></div>'; c.querySelector('b').textContent = t; c.querySelector('span').textContent = s; box.appendChild(c); return c.querySelector('.rlist'); };
+  const cH = col('🕘 履歴', '最近開いた順'), cP = col('📌 ピン留め', '外すまで残ります');
+  hist.forEach(r => cH.appendChild(p3RootNode(r, 'h')));
+  if (pins.length) pins.forEach(r => cP.appendChild(p3RootNode(r, 'p')));
+  else cP.innerHTML = '<div class="kmsg pempty">履歴の 📌 を押すと、ここに残せます</div>';
 }
-/* 前回のフォルダを1回押すだけで開く */
-async function p360LastDirButton() {
-  const g = document.getElementById('p360Grid');
-  if (!g || p360Files.length || !window.showDirectoryPicker) return;
-  const h = await DB.get('files', p3DirKey()).catch(() => null);
-  if (!h || !h.name) return;
-  const b = document.createElement('button'); b.className = 'p3btn pri p3last';
-  b.textContent = `前回のフォルダ「${h.name}」を開く`;
+function p3RootNode(r, col) {
+  const id = p3IdOf(r), rootKey = col + '|' + id + ':';
+  const node = document.createElement('div'); node.className = 'node';
+  const row = document.createElement('div'); row.className = 'rr';
+  const b = document.createElement('button'); b.className = 'ri';
+  const dt = r.t ? new Date(r.t) : null;
+  const when = dt ? (dt.getMonth() + 1) + '/' + dt.getDate() + ' ' + String(dt.getHours()).padStart(2, '0') + ':' + String(dt.getMinutes()).padStart(2, '0') : '';
+  b.innerHTML = '<span class="chev"></span><span class="rl"><span class="rn"></span><span class="rs"></span></span><span class="rm"></span>';
+  b.querySelector('.rn').textContent = r.memo ? r.memo : '📁 ' + r.h.name;
+  const small = [r.memo ? '📁 ' + r.h.name : '', r.where || ''].filter(Boolean).join('　');
+  if (small) b.querySelector('.rs').textContent = small; else b.querySelector('.rs').remove();
+  b.querySelector('.chev').textContent = r.sub ? '▸' : '';
+  b.querySelector('.rm').textContent = [r.sub ? 'フォルダ' + r.sub : '', r.n ? r.n + '枚' : '', col === 'h' ? when : ''].filter(Boolean).join('　');
   b.onclick = async () => {
-    try { if ((await h.requestPermission({ mode: 'read' })) !== 'granted') return; } catch (e) { p360PickDir(); return; }
-    let files = [];
-    try { files = await p360ReadDir(h); } catch (e) { toast(sToast, '前回のフォルダを開けませんでした。「フォルダを選ぶ」から選び直してください'); return; }
-    p360Take && p360Take(files);
+    try { if (!await p3Perm(r.h)) { toast(sToast, 'フォルダへのアクセスが許可されませんでした'); return; } }
+    catch (e) { toast(sToast, '開けませんでした（フォルダが移動・削除された可能性）'); return; }
+    if (r.sub) {
+      if (node.classList.contains('open')) { p3CloseNode(node, rootKey); return; }
+      p3OpenNode(node, rootKey, () => p3FillKids(node, r, r.h, [], col));
+    } else p3OpenFolder(r.h);
   };
-  const em = g.querySelector('.p3empty'); if (em) em.after(b); else g.prepend(b);
+  const pin = document.createElement('button'); pin.className = 'rx rxpin' + (r.pinned ? ' on' : ''); pin.textContent = '📌';
+  pin.title = r.pinned ? 'ピン留めを外す' : 'ピン留めする（下の「ピン留め」に残す）';
+  pin.onclick = async () => { await p3Edit(r.h, x => { x.pinned = !r.pinned; if (x.pinned) x.pinT = Date.now(); }); p3RenderRecent(); };
+  const ed = document.createElement('button'); ed.className = 'rx'; ed.textContent = '🏷️'; ed.title = 'メモを付ける（現場名など）';
+  ed.onclick = () => {
+    const inp = document.createElement('input'); inp.className = 're'; inp.value = r.memo || ''; inp.placeholder = 'メモ（例：○○処理場 9/12現地調査）空欄で削除';
+    b.replaceWith(inp); inp.focus(); inp.select();
+    let done = false;
+    const fin = async sv => { if (done) return; done = true; if (sv) await p3Edit(r.h, x => x.memo = inp.value.trim()); p3RenderRecent(); };
+    inp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); fin(true); } else if (e.key === 'Escape') { e.preventDefault(); fin(false); } e.stopPropagation(); });
+    inp.addEventListener('blur', () => fin(true));
+  };
+  row.append(b, pin, ed);
+  if (col === 'h') {
+    const x = document.createElement('button'); x.className = 'rx'; x.textContent = '×'; x.title = '履歴から外す（ピン留めは残ります）';
+    x.onclick = async () => { await p3Edit(r.h, y => y.inHist = false); p3RenderRecent(); };
+    row.appendChild(x);
+  }
+  node.appendChild(row);
+  if (r.sub && p3TreeOpen.has(rootKey)) {
+    r.h.queryPermission({ mode: 'read' }).then(p => {
+      if (p === 'granted') p3OpenNode(node, rootKey, () => p3FillKids(node, r, r.h, [], col)); else p3TreeOpen.delete(rootKey);
+    }).catch(() => { });
+  }
+  return node;
+}
+function p3OpenNode(node, key, fill) {
+  p3TreeOpen.add(key); node.classList.add('open');
+  let kids = node.querySelector(':scope > .kids');
+  if (!kids) { kids = document.createElement('div'); kids.className = 'kids'; node.appendChild(kids); }
+  kids.innerHTML = '<div class="kmsg">確認中…</div>';
+  fill();
+}
+function p3CloseNode(node, key) { p3TreeOpen.delete(key); node.classList.remove('open'); const k = node.querySelector(':scope > .kids'); if (k) k.remove(); }
+async function p3FillKids(node, r, root, path, col) {
+  const id = p3IdOf(r), box = node.querySelector(':scope > .kids');
+  let dir, lv;
+  try { dir = await p3DirAt(root, path); lv = await p3Level(id + ':' + path.join('/'), dir); }
+  catch (e) { box.innerHTML = '<div class="kmsg">開けませんでした（フォルダが移動・削除された可能性）</div>'; return; }
+  box.innerHTML = '';
+  if (lv.n) {
+    const k = document.createElement('div'); k.className = 'kid here';
+    k.innerHTML = '<div class="rr"><button class="ri"><span class="chev"></span><span class="rl"><span class="rn">このフォルダの写真を開く</span></span><span class="rm"></span></button></div>';
+    k.querySelector('.rm').textContent = lv.n + '枚';
+    k.querySelector('.ri').onclick = () => p3OpenPhotos(root, path, dir);
+    box.appendChild(k);
+  }
+  if (!lv.n && !lv.subs.length) { box.innerHTML = '<div class="kmsg">' + p3Word() + 'もフォルダもありません</div>'; return; }
+  const pending = [];
+  for (const h of lv.subs) {
+    const rel = path.concat(h.name), c2 = id + ':' + rel.join('/'), o2 = col + '|' + c2;
+    const kid = document.createElement('div'); kid.className = 'kid node';
+    kid.innerHTML = '<div class="rr"><button class="ri"><span class="chev"></span><span class="rl"><span class="rn"></span></span><span class="rm">…</span></button></div>';
+    kid.querySelector('.rn').textContent = '📁 ' + h.name;
+    if (p3TreeMark === o2) kid.classList.add('cur');
+    box.appendChild(kid);
+    const paint = info => {
+      kid.querySelector('.chev').textContent = info.subs.length ? '▸' : '';
+      kid.querySelector('.rm').textContent = info.n ? info.n + '枚' : (info.subs.length ? '' : p3Word() + 'なし');
+      kid.classList.toggle('empty', !info.n && !info.subs.length);
+      if (info.subs.length && p3TreeOpen.has(o2)) p3OpenNode(kid, o2, () => p3FillKids(kid, r, root, rel, col));
+    };
+    let wait = null;
+    const get = () => wait || (wait = p3Level(c2, h).catch(() => ({ n: 0, subs: [] })));
+    kid.querySelector('.ri').onclick = async () => {
+      const info = await get();
+      if (info.subs.length) { if (kid.classList.contains('open')) p3CloseNode(kid, o2); else p3OpenNode(kid, o2, () => p3FillKids(kid, r, root, rel, col)); }
+      else if (info.n) p3OpenPhotos(root, rel, h);
+      else toast(sToast, 'このフォルダには' + p3Word() + 'がありません');
+    };
+    if (p3LvCache.has(p3Kind + '|' + c2)) paint(p3LvCache.get(p3Kind + '|' + c2)); else pending.push(() => get().then(paint));
+  }
+  let next = 0;                                       /* 枚数は同時に4つまで調べて順に表示 */
+  const worker = async () => { while (next < pending.length) await pending[next++](); };
+  for (let i = 0; i < 4; i++) worker();
+  const cur = box.querySelector(':scope > .kid.cur');
+  if (cur) setTimeout(() => cur.scrollIntoView({ block: 'center' }), 0);
+}
+/* フォルダや画像を右側へドラッグ＆ドロップ（パソコン） */
+function p3WireDrop(el) {
+  el.addEventListener('dragover', e => { if (![...e.dataTransfer.types].includes('Files')) return; e.preventDefault(); el.classList.add('over'); });
+  el.addEventListener('dragleave', e => { if (!e.relatedTarget || !el.contains(e.relatedTarget)) el.classList.remove('over'); });
+  el.addEventListener('drop', async e => {
+    if (![...e.dataTransfer.types].includes('Files')) return;
+    e.preventDefault(); el.classList.remove('over');
+    const hps = [], files = [];
+    for (const it of [...e.dataTransfer.items]) {
+      if (it.kind !== 'file') continue;
+      if (it.getAsFileSystemHandle) { try { hps.push(it.getAsFileSystemHandle()); } catch (er) { } }
+      const f = it.getAsFile(); if (f) files.push(f);
+    }
+    const hs = (await Promise.allSettled(hps)).filter(r => r.status === 'fulfilled' && r.value).map(r => r.value);
+    const dirs = hs.filter(h => h.kind === 'directory');
+    if (dirs.length === 1) { await p3OpenFolder(dirs[0]); return; }
+    const imgs = files.filter(f => f.size > 0 && p3Ext().test(f.name));
+    if (imgs.length) p360Take && p360Take(imgs);
+    else toast(sToast, dirs.length ? 'フォルダは1つずつドロップしてください' : p3Word() + 'が見つかりませんでした');
+  });
 }
 function p360Key(f) { return f.name + '|' + f.size + '|' + f.lastModified; }
 function p360Draw() {
@@ -6745,11 +7076,11 @@ function p360Draw() {
     if (n) wbox.querySelector('#p360Auto').onclick = autoLink360;
   }
   const g = document.getElementById('p360Grid'); if (!g) return;
-  g.innerHTML = p360Files.length ? '' : `<div class="p3empty">「フォルダを選ぶ」か「画像を選ぶ」で、${p3Kind === 'photo' ? '写真（.jpg / .png など）' : '360°写真（.jpg / .insp）'}を選んでください</div>`;
+  g.innerHTML = p360Files.length ? '' : `<div class="p3empty">「📁 フォルダ」か「画像を選ぶ」で、${p3Kind === 'photo' ? '写真（.jpg / .png など）' : '360°写真（.jpg / .insp）'}を選んでください</div>`;
   g.classList.toggle('ph', p3Kind === 'photo');
   const placed = new Map();
   if (p3Kind === 'photo') proj.markers.forEach((m, i) => (m.photos || []).forEach(pid => { const s = (proj.photos[pid] || {}).src; if (s) placed.set(s, 'ピン' + (i + 1)); }));
-  else p360List().forEach((q, i) => placed.set(q.src, '360-' + (i + 1)));
+  else p360List().forEach((q, i) => p360Imgs(q).forEach(m => placed.set(m.src, '360-' + (i + 1))));
   p360Files.forEach((f, fi) => {
     const it = document.createElement('div'); it.className = 'p3it' + (p3Sel.has(p360Key(f)) ? ' sel' : '');
     it.dataset.i = fi;
@@ -6938,11 +7269,7 @@ async function phDropMulti(cx, cy, files) {
 }
 /* まとめて置く：360° → 離した場所から少しずつずらして並べる（あとで1つずつ動かせます） */
 async function p360DropMulti(cx, cy, files) {
-  const r = sWrap.getBoundingClientRect();
-  if (cx < r.left || cx > r.right || cy < r.top || cy > r.bottom) { toast(sToast, '左の図面の上で離してください'); return false; }
-  for (let i = 0; i < files.length; i++) await p360DropAt(cx + (i % 6) * 30, cy + Math.floor(i / 6) * 30, files[i]);
-  toast(sToast, `360°写真を${files.length}枚置きました。ピン固定を外すと、1つずつ動かせます`, 4000);
-  return true;
+  return p360DropFiles(cx, cy, files);
 }
 /* ふつうの写真：離した場所に新しいカメラピン。既存のカメラピンの上で離したら、そのピンに追加 */
 async function phDropAt(cx, cy, f) {
@@ -6975,29 +7302,58 @@ async function phDropAt(cx, cy, f) {
   else await placePin(pt);
   p360Draw();
 }
-async function p360DropAt(cx, cy, f) {
-  if (!proj) return;
+/* 1つの「360」マークに入っている写真（1枚目＋追加分） */
+function p360Imgs(v) {
+  if (!v || v.wait) return [];
+  return [{ id: v.id, name: v.name, kind: v.kind, takenAt: v.takenAt, src: v.src }].concat(v.more || []);
+}
+function p360At(cx, cy) {
+  const hit = document.elementsFromPoint(cx, cy).find(e => e.closest && e.closest('.p360pin'));
+  if (!hit) return null;
+  const pe = hit.closest('.p360pin');
+  for (const [id, el] of p360Els) if (el === pe) return p360List().find(v => v.id === id) || null;
+  return null;
+}
+async function p360DropAt(cx, cy, f) { return p360DropFiles(cx, cy, [f]); }
+/* 離した場所に「360」マーク。既存の360マークの上なら、そのマークに追加（写真待ちのマークなら結びつける） */
+async function p360DropFiles(cx, cy, files) {
+  if (!proj || !files.length) return false;
   const r = sWrap.getBoundingClientRect();
-  if (cx < r.left || cx > r.right || cy < r.top || cy > r.bottom) { toast(sToast, '左の図面の上で離してください'); return; }
-  const pt = { x: (cx - r.left - sheetView.tx) / sheetView.scale, y: (cy - r.top - sheetView.ty) / sheetView.scale };
-  const q = docToPage(pt), L = layout[q.slot];
-  if (!L || q.x < 0 || q.y < 0 || q.x > L.w || q.y > L.h) { toast(sToast, '図面（ページ）の上で離してください'); return; }
-  const id = 'v' + uid();
+  if (cx < r.left || cx > r.right || cy < r.top || cy > r.bottom) { toast(sToast, '左の図面の上で離してください'); return false; }
+  let target = p360At(cx, cy), q = null;
+  if (!target) {
+    const pt = { x: (cx - r.left - sheetView.tx) / sheetView.scale, y: (cy - r.top - sheetView.ty) / sheetView.scale };
+    q = docToPage(pt); const L = layout[q.slot];
+    if (!L || q.x < 0 || q.y < 0 || q.x > L.w || q.y > L.h) { toast(sToast, '図面（ページ）の上で離してください'); return false; }
+  }
+  const recs = [];
   try {
-    busy(true, '360°写真を保存しています…');
-    await DB.put('files', new Blob([f], { type: /\.insp$/i.test(f.name) ? 'application/octet-stream' : 'image/jpeg' }), proj.id + '::' + id);
-  } catch (e) { busy(false); alert('360°写真を保存できませんでした\n' + (e.message || e)); return; }
+    for (let i = 0; i < files.length; i++) {
+      const f = files[i];
+      busy(true, `360°写真を保存しています… ${i + 1} / ${files.length}`);
+      const isNewMain = i === 0 && (!target || target.wait);
+      const id = isNewMain && target ? target.id : 'v' + uid();
+      await DB.put('files', new Blob([f], { type: /\.insp$/i.test(f.name) ? 'application/octet-stream' : 'image/jpeg' }), proj.id + '::' + id);
+      recs.push({ id, name: f.name, kind: /\.insp$/i.test(f.name) ? 'insp' : 'jpg', takenAt: f.lastModified || Date.now(), src: p360Key(f) });
+    }
+  } catch (e) { busy(false); alert('360°写真を保存できませんでした\n' + (e.message || e)); return false; }
   busy(false);
-  p360List().push({ id, page: q.i, x: q.x, y: q.y, name: f.name, kind: /\.insp$/i.test(f.name) ? 'insp' : 'jpg', takenAt: f.lastModified || Date.now(), at: Date.now(), src: p360Key(f) });
+  let v;
+  if (target && !target.wait) { v = target; v.more = (v.more || []).concat(recs); }
+  else if (target) { v = target; const [a, ...rest] = recs; Object.assign(v, { name: a.name, kind: a.kind, takenAt: a.takenAt, src: a.src }); delete v.wait; if (rest.length) v.more = (v.more || []).concat(rest); }
+  else { const [a, ...rest] = recs; v = { id: a.id, page: q.i, x: q.x, y: q.y, name: a.name, kind: a.kind, takenAt: a.takenAt, at: Date.now(), src: a.src }; if (rest.length) v.more = rest; p360List().push(v); }
   await save();
   layoutP360();
   p360Draw();
-  toast(sToast, `360°写真を置きました（360-${p360List().length}）`);
+  if (shoot360 && typeof m360BarText === 'function') m360BarText();
+  const k = p360List().indexOf(v) + 1, n = p360Imgs(v).length;
+  toast(sToast, target ? `360-${k} に${files.length}枚追加しました（全部で${n}枚）` : `360°写真を置きました（360-${k}${n > 1 ? '・' + n + '枚' : ''}）`, 3500);
+  return true;
 }
 function open360Pane(kind) {
   if (!proj) return;
   kind = kind === 'photo' ? 'photo' : '360';
-  if (kind !== p3Kind) { p3Kind = kind; p360Files = []; p3Sel.clear(); p3Anchor = -1; }
+  if (kind !== p3Kind) { p3Kind = kind; p360Files = []; p3CurInfo = null; p3Sel.clear(); p3Anchor = -1; p3TreeOpen.clear(); p3TreeMark = null; }
   const t = document.getElementById('p3Title');
   p360PrevSplit = splitWant;
   if (!splitWant) setSplit(true);
@@ -7006,7 +7362,7 @@ function open360Pane(kind) {
   document.getElementById('p3Title').textContent = p3Kind === 'photo' ? '写真を配置' : '360°写真を配置';
   document.getElementById('p360Pick').accept = p3Kind === 'photo' ? 'image/*' : '.jpg,.jpeg,.insp,image/jpeg';
   p360Draw();
-  p360LastDirButton();
+  if (p360Files.length) p3Show('grid'); else p3GoHome(false);
 }
 function close360Pane(keepSplit) {
   const el = document.getElementById('p360Pane');
@@ -7022,7 +7378,7 @@ function layoutP360() {
   p360List().forEach((v, i) => {
     const el = document.createElement('div');
     el.className = 'pin p360pin' + (v.wait ? ' wait' : '');
-    el.innerHTML = `<div class="dot">360${v.wait ? '<span class="wclk"><svg viewBox="0 0 12 12"><path d="M6 3v3l2 1.4"/></svg></span>' : ''}</div><div class="num">${i + 1}</div>`;
+    el.innerHTML = `<div class="dot">360${v.wait ? '<span class="wclk"><svg viewBox="0 0 12 12"><path d="M6 3v3l2 1.4"/></svg></span>' : ''}</div><div class="num">${(v.more || []).length ? (i + 1) + '\u00b7' + p360Imgs(v).length : (i + 1)}</div>`;
     pinLayer.appendChild(el);
     p360Els.set(v.id, el);
     p360WirePin(el, v);
@@ -7031,7 +7387,7 @@ function layoutP360() {
 }
 function positionP360() {
   if (!proj || !p360Els.size) return;
-  const W = sWrap.clientWidth, H = sWrap.clientHeight;
+  const wb = wbox(), W = wb.width, H = wb.height;
   p360List().forEach(v => {
     const el = p360Els.get(v.id); if (!el) return;
     const L = layout[slotOf[v.page]];
@@ -7087,13 +7443,35 @@ function p360Menu(v) {
   { label: 'この360°写真を削除', danger: true, run: () => delete360(v) }];
 }
 async function delete360(v) {
-  if (!confirm('この360°写真を図面から削除しますか？')) return;
+  const nImg = p360Imgs(v).length;
+  if (!confirm(nImg > 1 ? `この360°マーク（${nImg}枚）を図面から削除しますか？` : 'この360°写真を図面から削除しますか？')) return;
   const a = p360List(), i = a.indexOf(v); if (i < 0) return;
   a.splice(i, 1);
-  try { await DB.del('files', proj.id + '::' + v.id); } catch (e) { }
+  for (const m of (p360Imgs(v).length ? p360Imgs(v) : [{ id: v.id }])) { try { await DB.del('files', proj.id + '::' + m.id); } catch (e) { } }
   if (p360ViewId === v.id) close360View();
   await save(); layoutP360(); p360Draw();
   toast(sToast, '360°写真を削除しました');
+}
+/* マークの中の1枚だけ外す（1枚目なら、2枚目を1枚目に繰り上げ） */
+async function remove360Img(v, imgId) {
+  const imgs = p360Imgs(v); if (imgs.length < 2) { delete360(v); return; }
+  if (!confirm('この1枚を、この360°マークから外しますか？')) return;
+  if (imgId === v.id) {
+    const nx = v.more[0];
+    const b = await DB.get('files', proj.id + '::' + nx.id);
+    if (b) await DB.put('files', b, proj.id + '::' + v.id);
+    try { await DB.del('files', proj.id + '::' + nx.id); } catch (e) { }
+    Object.assign(v, { name: nx.name, kind: nx.kind, takenAt: nx.takenAt, src: nx.src });
+    v.more = v.more.slice(1);
+  } else {
+    v.more = v.more.filter(m => m.id !== imgId);
+    try { await DB.del('files', proj.id + '::' + imgId); } catch (e) { }
+  }
+  if (!v.more.length) delete v.more;
+  p360ThumbById.delete(v.id);
+  await save(); layoutP360(); p360Draw();
+  toast(sToast, '1枚外しました');
+  open360(v);
 }
 /* 見る（いまは仮：画像をそのまま表示。360°ビューアは後で組み込む） */
 let p360ViewId = null, p360ViewUrl = null;
@@ -7102,15 +7480,16 @@ const V360_HTML = "<!DOCTYPE html>\n<html lang=\"ja\">\n<head>\n<meta charset=\"
 let v360Msg = null, v360Items = [];
 async function open360(v, fromList) {
   if (v.wait) { p360WaitMenu(v); return; }
-  const items = p360List().filter(x => !x.wait);
-  const idx = items.indexOf(v);
+  const items = [];
+  p360List().forEach(x => p360Imgs(x).forEach((m, j) => items.push({ v: x, m, j, n: p360Imgs(x).length })));
+  const idx = items.findIndex(t => t.v === v);
   if (idx < 0) return;
   const backIds = fromList ? p360ListIds : undefined;
   close360View(); if (typeof close360List === 'function') close360List();
   const sv = document.body.classList.contains('sv');
   if (sv) splitTake('p360v');
   const el = document.createElement('div'); el.id = 'p360View'; el.className = sv ? 'inpane' : 'full';
-  el.innerHTML = `<div class="p3vh"><b class="p3vk"></b><span class="p3vn"></span><span class="sp"></span>${fromList ? '<button class="p3btn" id="p360VBack">一覧へ</button>' : ''}<button class="p3btn" id="p360VClose">閉じる</button></div>
+  el.innerHTML = `<div class="p3vh"><b class="p3vk"></b><span class="p3vn"></span><span class="sp"></span>${fromList ? '<button class="p3btn" id="p360VBack">一覧へ</button>' : ''}<button class="p3btn" id="p360VRm" style="display:none">この1枚を外す</button><button class="p3btn" id="p360VClose">閉じる</button></div>
     <iframe class="p3vf" title="360°ビューア"></iframe>`;
   (sv ? paneO : document.body).appendChild(el);
   el.querySelector('#p360VClose').onclick = close360View;
@@ -7118,12 +7497,16 @@ async function open360(v, fromList) {
   v360Items = items;
   const fr = el.querySelector('iframe');
   const mark = i => {
-    const it = v360Items[i]; if (!it) return;
+    const t = v360Items[i]; if (!t) return;
+    const it = t.v;
     if (p360ViewId) { const pe = p360Els.get(p360ViewId); if (pe) pe.classList.remove('viewing'); }
     p360ViewId = it.id;
     const pe = p360Els.get(it.id); if (pe) pe.classList.add('viewing');
-    el.querySelector('.p3vk').textContent = '360-' + (p360List().indexOf(it) + 1);
-    el.querySelector('.p3vn').textContent = (it.name || '') + '　（P' + (it.page + 1) + '）';
+    el.querySelector('.p3vk').textContent = '360-' + (p360List().indexOf(it) + 1) + (t.n > 1 ? `（${t.j + 1}/${t.n}枚）` : '');
+    el.querySelector('.p3vn').textContent = (t.m.name || '') + '　（P' + (it.page + 1) + '）';
+    const rm = el.querySelector('#p360VRm');
+    rm.style.display = t.n > 1 ? '' : 'none';
+    rm.onclick = () => remove360Img(it, t.m.id);
   };
   mark(idx);
   v360Msg = async e => {
@@ -7131,7 +7514,8 @@ async function open360(v, fromList) {
     const d = e.data || {};
     if (d.type === 'gn-ready') {
       const files = [];
-      for (const it of v360Items) {
+      for (const t of v360Items) {
+        const it = t.m;
         const b = await DB.get('files', proj.id + '::' + it.id);
         const nm = it.name || (it.id + (it.kind === 'insp' ? '.insp' : '.jpg'));
         files.push(new File([b || new Blob()], nm, { type: it.kind === 'insp' ? '' : 'image/jpeg', lastModified: it.takenAt || 0 }));
@@ -7155,8 +7539,8 @@ $('#sPick').onclick = () => {
   if (!proj) { $('#filePic').click(); return; }
   dialog(`<h3>配置する画像</h3>
     <div class="p3choose">
-      <button data-k="photo"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg><b>写真</b></button>
-      <button data-k="360"><span class="p3cdot">360</span><b>360°</b></button>
+      <button data-k="photo"><span class="pvi cam">${PV_CAM}</span><b>写真</b></button>
+      <button data-k="360"><span class="pvi">360</span><b>360°</b></button>
     </div>
     <div class="row" style="margin-top:12px"><button data-x>やめる</button></div>`, (c, close) => {
     c.querySelector('[data-x]').onclick = close;
@@ -7225,12 +7609,13 @@ function open360List(ids) {
   if (sv) splitTake('p360v');
   const all = p360List(), items = all.map((v, i) => ({ v, n: i + 1 })).filter(x => !ids || ids.includes(x.v.id));
   const el = document.createElement('div'); el.id = 'p360List'; el.className = sv ? 'inpane' : 'full';
-  el.innerHTML = `<div class="p3vh"><b>360°写真一覧</b><span class="p3vn">${ids ? '範囲内 ' : ''}${items.length}枚</span><span class="sp"></span><button class="p3btn" id="p360LClose">閉じる</button></div>
+  const nAll = items.reduce((a, x) => a + Math.max(1, p360Imgs(x.v).length), 0);
+  el.innerHTML = `<div class="p3vh"><b>360°写真一覧</b><span class="p3vn">${ids ? '範囲内 ' : ''}${items.length}か所${nAll > items.length ? '・' + nAll + '枚' : ''}</span><span class="sp"></span><button class="p3btn" id="p360LClose">閉じる</button></div>
     <div class="p3grid"></div>`;
   const g = el.querySelector('.p3grid');
   items.forEach(({ v, n }) => {
     const it = document.createElement('div'); it.className = 'p3it';
-    it.innerHTML = `<div class="p3im"><span class="p3ld">読み込み中…</span></div><div class="p3nm"></div><div class="p3done">360-${n}　P${v.page + 1}</div>`;
+    it.innerHTML = `<div class="p3im"><span class="p3ld">読み込み中…</span></div><div class="p3nm"></div><div class="p3done">360-${n}　P${v.page + 1}${(v.more || []).length ? '　' + p360Imgs(v).length + '枚' : ''}</div>`;
     it.querySelector('.p3nm').textContent = v.name || '';
     it.onclick = () => open360(v, true);
     g.appendChild(it);
@@ -7262,13 +7647,13 @@ function m360Bar() {
 }
 function m360BarText() {
   const n = proj ? p360Waits().length : 0;
-  m360Bar().querySelector('.tx').innerHTML = `<b>360°撮影中</b>　360°カメラで撮ったら、撮った場所をタップ${n ? `<em>写真待ち ${n}個</em>` : ''}`;
+  m360Bar().querySelector('.tx').innerHTML = `<b>360°事前配置中</b>　360°カメラで撮ったら、撮った場所をタップ${n ? `<em>写真待ち ${n}個</em>` : ''}`;
 }
 function setShoot360(on) {
   if (on && !proj) return;
   shoot360 = on;
   $('#v360Shoot').classList.toggle('on', on);
-  if (on) { m360BarText(); m360Bar().classList.add('on'); toast(sToast, '360°撮影モード：撮った場所をタップすると、写真待ちのマークを置きます'); }
+  if (on) { m360BarText(); m360Bar().classList.add('on'); toast(sToast, '360°事前配置：撮った場所をタップすると、写真待ちのマークを置きます'); }
   else { const b = document.getElementById('m360Bar'); if (b) b.classList.remove('on'); }
 }
 $('#v360Shoot').onclick = () => setShoot360(!shoot360);
@@ -7309,7 +7694,7 @@ const hhmm = t => { const d = new Date(t), z = n => String(n).padStart(2, '0'); 
 async function autoLink360() {
   const W = p360Waits();
   if (!W.length) { toast(sToast, '写真待ちのマークはありません'); return; }
-  const used = new Set(p360List().filter(v => !v.wait).map(v => v.src));
+  const used = new Set(p360List().flatMap(v => p360Imgs(v).map(m => m.src)));
   const selF = p360Files.filter(f => p3Sel.has(p360Key(f)));
   const files = (selF.length ? selF : p360Files).filter(f => !used.has(p360Key(f)));
   if (!files.length) { toast(sToast, '先に「フォルダを選ぶ」か「画像を選ぶ」で、360°写真を読み込んでください'); return; }
@@ -8889,12 +9274,17 @@ async function exportAll(into) {
       for (let i = 0; i < proj.p360.length; i++) {
         const v = proj.p360[i];
         if (v.wait) { meta.p360.push(v); continue; }
-        const b = await DB.get('files', proj.id + '::' + v.id);
-        if (!b) continue;
-        const ext = v.kind === 'insp' ? 'insp' : 'jpg';
-        d360.file(`360-${String(i + 1).padStart(3, '0')}_P${v.page + 1}_${fsafe(v.name || (v.id + '.' + ext))}`, b);
-        proj_.file('p360/' + v.id + '.' + ext, b);
-        meta.p360.push(v);
+        const imgs = p360Imgs(v); let ok = 0;
+        for (let j = 0; j < imgs.length; j++) {
+          const m = imgs[j];
+          const b = await DB.get('files', proj.id + '::' + m.id);
+          if (!b) continue;
+          const ext = m.kind === 'insp' ? 'insp' : 'jpg';
+          d360.file(`360-${String(i + 1).padStart(3, '0')}${imgs.length > 1 ? '-' + (j + 1) : ''}_P${v.page + 1}_${fsafe(m.name || (m.id + '.' + ext))}`, b);
+          proj_.file('p360/' + m.id + '.' + ext, b);
+          ok++;
+        }
+        if (ok) meta.p360.push(v);
       }
     }
     /* 録音の記録まで入れてから書く（先に書くと読み込み直したときに録音が消える） */
@@ -9165,6 +9555,17 @@ async function importOneProject(zip, base, folderId, fallbackName, strict) {
     const path = pick(base + 'p360/' + v.id + ext, v.id + ext);
     if (!path) { miss++; continue; }
     await DB.put('files', await zip.file(path).async('blob'), p.id + '::' + v.id);
+    if (v.more) {
+      const keep = [];
+      for (const m of v.more) {
+        const e2 = m.kind === 'insp' ? '.insp' : '.jpg';
+        const p2 = pick(base + 'p360/' + m.id + e2, m.id + e2);
+        if (!p2) { miss++; continue; }
+        await DB.put('files', await zip.file(p2).async('blob'), p.id + '::' + m.id);
+        keep.push(m);
+      }
+      if (keep.length) v.more = keep; else delete v.more;
+    }
     p.p360.push(v);
   }
   for (const r of (meta.recordings || [])) {
