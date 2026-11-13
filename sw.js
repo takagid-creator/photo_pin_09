@@ -1,9 +1,9 @@
-/* SANEI_現場NOTE オフライン用（v13）
+/* SANEI_現場NOTE オフライン用（v14：アイコンとmanifestもオフラインで使えるように）
    ・アプリ本体（.html）は「ネット優先」：つながっていれば毎回新しい版を取りに行く（GitHubの更新が1回で反映）
      つながらない・遅い（4秒）ときは、保存してある版で起動する
    ・それ以外のファイルは、保存してある版をすぐ使い、裏で新しくする */
-const CACHE = 'photopin-v13';
-const ASSETS = ['./photo_pin_09.html'];
+const CACHE = 'photopin-v14';
+const ASSETS = ['./photo_pin_09.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png'];
 const TIMEOUT = 4000;
 
 self.addEventListener('install', e => {
